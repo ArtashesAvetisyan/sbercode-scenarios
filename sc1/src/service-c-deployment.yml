@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-c-deployment
+  labels:
+    app: service-c-app
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-c-app
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: service-c-app
+        version: v1
+    spec:
+      containers:
+        - name: service-c-container
+          image: artashesavetisyan/istio-basics-course:service-c
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8083
+          securityContext:
+            runAsUser: 1000

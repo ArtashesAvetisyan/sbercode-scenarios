@@ -1,0 +1,36 @@
+{
+  "title": "Исходящий HTTPS трафик из service mesh",
+  "description": "Рассмотрим создание исходящего HTTPS трафика из service mesh",
+  "details": {
+    "steps": [
+      {
+        "title": "Шаг 1 - Подготовка среды выполнения",
+        "text": "step1.md"
+      },
+      {
+        "title": "Шаг 2 - Сценарии упражнения",
+        "text": "step2.md"
+      },
+      {
+        "title": "Шаг 3 - Установка ServiceG, внутрисетевая маршрутизация",
+        "text": "step3.md"
+      },
+      {
+        "title": "Шаг 4 - Конфигурацию исходящего HTTPS трафика.",
+        "text": "step4.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster-running:1.18"
+  }
+}

@@ -1,0 +1,12 @@
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: service-b-peer-to-peer-authn-policy
+  namespace: dev-service-mesh
+spec:
+  selector:
+    matchLabels:
+      app: service-b-app
+  portLevelMtls:
+    8082:
+      mode: STRICT

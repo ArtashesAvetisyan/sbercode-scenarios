@@ -1,0 +1,9 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: producer-internal-host-mtls-dr
+spec:
+  host: producer-internal-host
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL

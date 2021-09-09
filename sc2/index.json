@@ -1,0 +1,48 @@
+{
+  "title": "Маршрутизация трафика внутри service mesh",
+  "description": "Рассмотьрм маршрутизацию трафика внутри service mesh",
+  "details": {
+    "steps": [
+      {
+        "title": "Шаг 1 - Подготовка среды выполнения",
+        "text": "step1.md"
+      },
+      {
+        "title": "Шаг 2 - Сценарии упражнения",
+        "text": "step2.md"
+      },
+      {
+        "title": "Шаг 3 - Маршрутизация входящего трафика в ServiceA",
+        "text": "step3.md"
+      },
+      {
+        "title": "Шаг 4 - Направление исходящих запросов из ServiceA в ServiceB.",
+        "text": "step4.md"
+      },
+      {
+        "title": "Шаг 5 - Расщепление трафика из ServiceA.",
+        "text": "step5.md"
+      },
+      {
+        "title": "Шаг 6 - Открытие исходящего трафика в worldtimeapi.org",
+        "text": "step6.md"
+      },
+      {
+        "title": "Шаг 7 - Перевод всех запросов из ServiceA в ServiceC",
+        "text": "step7.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster-running:1.18"
+  }
+}

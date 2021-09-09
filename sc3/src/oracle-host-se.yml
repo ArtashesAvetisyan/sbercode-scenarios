@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: www-oracle-com
+spec:
+  hosts:
+    - www.oracle.com
+  ports:
+    - number: 80
+      name: http-port
+      protocol: HTTP
+      targetPort: 443
+    - number: 443
+      name: https-port
+      protocol: HTTPS
+  resolution: DNS

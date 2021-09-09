@@ -1,0 +1,32 @@
+{
+  "title": "Peer-to-peer аутентификация узла",
+  "description": "Рассмотим peer-to-peer аутентификацию узла",
+  "details": {
+    "steps": [
+      {
+        "title": "Шаг 1 - Подготовка среды выполнения",
+        "text": "step1.md"
+      },
+      {
+        "title": "Шаг 2 - Установка ServiceA и ServiceB, настройка маршрутизации",
+        "text": "step2.md"
+      },
+      {
+        "title": "Шаг 3 - Применение политики peer-to-peer аутнетификации узла",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster-running:1.18"
+  }
+}

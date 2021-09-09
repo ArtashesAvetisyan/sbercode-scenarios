@@ -1,0 +1,83 @@
+{
+    "title": "Katacoda Environments",
+    "description": "Available Katacoda Environments",
+    "icon": "fa-katacoda",
+    "courses": [
+      {
+        "course_id": "ubuntu-1804",
+        "title": "Ubuntu 18.04 Instance",
+        "description": "General purpose environment"
+      },
+      {
+        "course_id": "ubuntu-2004",
+        "title": "Ubuntu 20.04 Instance",
+        "description": "General purpose environment"
+      },
+      {
+        "course_id": "kubernetes-cluster",
+        "title": "Kubernetes Cluster",
+        "description": "Multi node Kubernetes cluster configured using Kubeadm"
+      },
+      {
+        "course_id": "kubernetes-cluster-running",
+        "title": "Kubernetes Cluster Running",
+        "description": "Multi node Kubernetes cluster configured using Kubeadm"
+      },
+      {
+        "course_id": "minikube",
+        "title": "Minikube",
+        "description": "Use Minikube to help explain Kubernetes"
+      },
+      {
+        "course_id": "java",
+        "title": "Java / Scala",
+        "description": ""
+      },
+      {
+        "course_id": "kotlin",
+        "title": "Kotlin",
+        "description": ""
+      },
+      {
+        "course_id": "python",
+        "title": "Python 3",
+        "description": ""
+      },
+      {
+        "course_id": "nodejs",
+        "title": "Node.js",
+        "description": ""
+      },
+      {
+        "course_id": "go",
+        "title": "go",
+        "description": ""
+      },
+      {
+        "course_id": "rust",
+        "title": "rust",
+        "description": ""
+      },
+      {
+        "course_id": "ruby",
+        "title": "ruby",
+        "description": ""
+      },
+      {
+        "course_id": "dotnet",
+        "title": "C# / Dotnet",
+        "description": ""
+      },
+      {
+        "course_id": "r",
+        "title": "R",
+        "description": ""
+      },
+      {
+        "course_id": "bash",
+        "title": "Bash",
+        "description": ""
+      }
+    ]
+  }
+  

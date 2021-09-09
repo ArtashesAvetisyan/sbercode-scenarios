@@ -1,0 +1,53 @@
+{
+  "title": "Установка Istio",
+  "description": "Learn how to create your first Katacoda scenario",
+  "details": {
+    "steps": [
+      {
+        "title": "Шаг 1 - Подготовка среды выполнения",
+        "text": "step1.md"
+      },
+      {
+        "title": "Шаг 2 - Установка Istio",
+        "courseData": "install_istio.sh",
+        "text": "step2.md"
+      },
+      {
+        "title": "Шаг 3 - Подготовка пространства имен",
+        "text": "step3.md"
+      },
+      {
+        "title": "Шаг 4 - Запуск пода с бизнес сервисом",
+        "text": "step4.md"
+      },
+      {
+        "title": "Шаг 5 - Применение манифеста Service",
+        "text": "step5.md"
+      },
+      {
+        "title": "Шаг 6 - Применение манифеста Gateway",
+        "text": "step6.md"
+      },
+      {
+        "title": "Шаг 7 - Применение манифеста VirtualService",
+        "text": "step7.md"
+      },
+      {
+        "title": "Шаг 8 - Тестирование пути входящего трафика",
+        "text": "step8.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster-running:1.18"
+  }
+}

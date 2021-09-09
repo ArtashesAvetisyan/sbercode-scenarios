@@ -1,0 +1,14 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: autho-policy
+  namespace: dev-service-mesh
+spec:
+  selector:
+    matchLabels:
+      app: service-a-app
+  action: DENY
+  rules:
+    - from:
+        - source:
+            namespaces: ["istio-system"]
