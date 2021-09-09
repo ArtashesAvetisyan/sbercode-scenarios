@@ -24,7 +24,7 @@
 
 Перед запросом убедимся в корректности статусов всех подов всех пространств имен:
 
-`kubectl get pods —all-namespaces`{{execute}}
+`kubectl get pods --all-namespaces`{{execute}}
 
 И наконец совершим GET запрос по адресу ingress-шлюза:
 
