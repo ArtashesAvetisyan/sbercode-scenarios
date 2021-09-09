@@ -48,6 +48,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "kubernetes-cluster-running:1.18"
+    "imageid": "k3s-istio:1.10.1"
   }
 }
