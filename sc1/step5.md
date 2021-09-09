@@ -21,7 +21,7 @@ spec:
 
 Давайте применим этот манифест:
 
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/producer-internal-host.yml`{{execute}}
+`kubectl apply -f producer-internal-host.yml`{{execute}}
 
 Получим его детальное описание из cubectl:
 

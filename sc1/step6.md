@@ -30,7 +30,7 @@ spec:
 
 Давайте применим service-b-gw.yml:
 
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/service-b-gw.yml`{{execute}}
+`kubectl apply -f service-b-gw.yml`{{execute}}
 
 Получим детальное описание созданного ресурса:
 

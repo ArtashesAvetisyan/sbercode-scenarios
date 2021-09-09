@@ -11,7 +11,7 @@
 Необходимое состояние узла для перехода к следующему шагу приведено ниже:
 ```
 NAME              STATUS   ROLES                  AGE     VERSION
-delicate-breeze   Ready    control-plane,master   8m54s   v1.21.2+k3s1
+*********         Ready    control-plane,master   8m54s   v1.21.2+k3s1
 ```
 
 Если вы не наблюдаете подобного вывода, подождите 1-2 минуты и повторите попытку.

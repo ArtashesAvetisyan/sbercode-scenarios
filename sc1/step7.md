@@ -37,7 +37,7 @@ spec:
 Ключ spec.http[0].route[0].destination.port.number содержит значение порта упомянутого сервиса.
 
 Давайте применим inbound-to-service-b-vs.yml:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/inbound-to-service-b-vs.yml`{{execute}}
+`kubectl apply -f inbound-to-service-b-vs.yml`{{execute}}
 
 Получим детальное описание созданного ресурса:
 `kubectl describe virtualservice.networking.istio.io inbound-to-service-b-vs`{{execute}}
