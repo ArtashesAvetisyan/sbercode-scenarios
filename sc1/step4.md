@@ -42,7 +42,7 @@ spec:
 
 ServiceB - это веб-приложение на базе Spring Boot и Java, которое принимает GET запросы по адресу http://localhost:8082/ и возвращает константный ответ вида: `Hello from ServiceB!`
 
-Исходный код приложения: `https://github.com/avsinsight/katacoda-scenarios/tree/main/apps/ServiceB`{{copy}}
+Исходный код приложения: `https://github.com/ArtashesAvetisyan/sbercode-scenarios/tree/master/apps/ServiceB`{{copy}}
 
 Давайте применим манифест, выполнив команду:
 
