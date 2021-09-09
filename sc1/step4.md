@@ -46,7 +46,7 @@ ServiceB - это веб-приложение на базе Spring Boot и Java,
 
 Давайте применим манифест, выполнив команду:
 
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/service-b-deployment.yml`{{execute}}
+`kubectl apply -f service-b-deployment.yml`{{execute}}
 
 Проверим статус созданного пода:
 
