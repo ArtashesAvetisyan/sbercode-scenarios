@@ -35,7 +35,7 @@ spec:
       mode: STRICT
 ```
 Применим данный манифест:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc5/src/service-b-peer-to-peer-authn-policy.yml`{{execute}}
+`kubectl apply -f service-b-peer-to-peer-authn-policy.yml`{{execute}}
 
 Повторим прямой вызов ServiceB миную ingress-шлюз и ServiceA:
 `curl -v http://$SERVICEB_HOST:$SERVICEB_PORT/`{{execute}}

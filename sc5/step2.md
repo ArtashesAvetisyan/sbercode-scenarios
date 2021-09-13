@@ -25,7 +25,7 @@
 Применим правило маршрутизации запросов из ServiceA в ServiceB:
 `kubectl apply -f producer-internal-host-vs.yml`{{execute}}
 
-Подробно тип манифестов выше рассмотрены в упражнении: `https://www.katacoda.com/artashesavetisyan/scenarios/sc1`{{copy}} и `https://www.katacoda.com/artashesavetisyan/scenarios/sc2`{{copy}}
+Подробно тип манифестов выше рассмотрены в упражнении: `https://dev2-84.pcbltools.ru/ui/ArtashesAvetisyan/sc1/`{{copy}} и `https://dev2-84.pcbltools.ru/ui/ArtashesAvetisyan/sc2/`{{copy}}
 
 Исходный код приложений:
 `https://github.com/avsinsight/katacoda-scenarios/tree/main/apps`{{copy}}
