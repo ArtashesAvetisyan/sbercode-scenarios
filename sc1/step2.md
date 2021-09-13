@@ -1,6 +1,6 @@
 На этом шаге мы выполним конфигурацию Istio
 
-Выпооним команду: `istioctl install --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY`{{execute}}
+Выполним команду: `istioctl -c /etc/rancher/k3s/k3s.yaml install --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY`{{execute}}
 
 Обратите внимание на параметры, применяемые в данной команде:
 

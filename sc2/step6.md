@@ -16,7 +16,7 @@
 
 Развернем egress-шлюз, выполнив команду авто-конфигруации Isto:
 
-`istioctl install --set components.egressGateways[0].name=istio-egressgateway --set components.egressGateways[0].enabled=true`{{execute}}
+`istioctl -c /etc/rancher/k3s/k3s.yaml install --set components.egressGateways[0].name=istio-egressgateway --set components.egressGateways[0].enabled=true`{{execute}}
 
 Просмотрим манифест worldtime-host-se.yml:
 ```

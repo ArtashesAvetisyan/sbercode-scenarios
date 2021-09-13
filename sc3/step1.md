@@ -17,21 +17,17 @@ node01         Ready    <none>   5m33s   v1.18.0
 
 Если вы не наблюдаете подобного вывода, подождите 1-2 минуты и повторите попытку.
 
-Также убедимся, что все существующие поды всех пространстве имен запущены и функционируют корректно: 
+Также убедимся, что все существующие поды всех пространстве имен запущены и функционируют корректно:
 
 `kubectl get pods --all-namespaces `{{execute}}
 
 Допустимы отличные статусы от приведенных выше значений только для пода katacoda-cloud-provider.
 
-## Установка Istio
+## Конфигурация Istio
 
-Давайте загрузим istioctl: `curl -sL https://istio.io/downloadIstioctl | sh -`{{execute}}
+Выполним команду: `istioctl -c /etc/rancher/k3s/k3s.yaml install --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY`{{execute}}
 
-Экспортируем путь istioctl: `export PATH=$PATH:$HOME/.istioctl/bin`{{execute}}
-
-Запустим установку Istio: `istioctl install --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY`{{execute}}
-
-Во время установки следует подтвердить намерение указав в терминале символ `y`{{copy}}
+Входе выполнения следует подтвердить намерение указав в терминале символ `y`{{copy}}
 
 ## Создание и конфигурация пространства имен
 
