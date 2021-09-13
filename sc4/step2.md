@@ -21,7 +21,7 @@
 Проверим готовность подов:
 `kubectl get pods --all-namespaces`{{execute}}
 
-Все поды, за исключением katacoda-cloud-provider, должны иметь статус Running, дождитесь нужного статсуса (в зависисмоти от нагрузки на серверы Katacoda это время может сильно варьировать).
+Все поды должны иметь статус Running, дождитесь нужного статсуса.
 
 И наконец совершим GET запрос по адресу ingress-шлюза:
 `curl -v http://$GATEWAY_URL/service-b`{{execute}}
