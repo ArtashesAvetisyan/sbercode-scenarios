@@ -26,6 +26,14 @@ NAME              STATUS   ROLES                  AGE     VERSION
 
 Выполним команду: `istioctl -c /etc/rancher/k3s/k3s.yaml install --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY`{{execute}}
 
+В случае успеха, в выводе вышеприведенной команды должны быть строки:
+```
+✔ Istio core installed                                                        
+✔ Istiod installed                                                            
+✔ Ingress gateways installed                                                  
+✔ Installation complete
+```
+
 Входе выполнения следует подтвердить намерение указав в терминале символ "y"
 
 ## Создание и конфигурация пространства имен

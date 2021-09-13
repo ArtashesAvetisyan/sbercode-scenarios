@@ -74,7 +74,7 @@ fill_interval: 1s
 Манифест в текущем виде ограничит число запросов до 1 в 5 секунд.
 
 Давайте применим этот манифест:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc4/src/rate-limit-5-ef.yml`{{execute}}
+`kubectl apply -f rate-limit-5-ef.yml`{{execute}}
 
 Повторите запрос по адресу ingress-шлюза. Совершите несколько запросов с промежутком 1 секунду:
 `curl -v http://$GATEWAY_URL/service-b`{{execute}}
