@@ -1,5 +1,5 @@
 {
-  "title": "Авторизация запросов в service mesh",
+  "title": "6. Авторизация запросов в service mesh",
   "description": "Рассмотрим авторизацию запросов в service mesh",
   "details": {
     "steps": [
