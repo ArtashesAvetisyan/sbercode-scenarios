@@ -3,23 +3,23 @@
 ![Mesh configuration](../assets/sc2-1.png)
 
 Давайте установим ServiceA:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/serviceA-v1-deployment.yml`{{execute}}
+`kubectl apply -f serviceA-v1-deployment.yml`{{execute}}
 
 Применим Service для деплоймента выше:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/serviceA-srv.yml`{{execute}}
+`kubectl apply -f serviceA-srv.yml`{{execute}}
 
 Создадим Gateway:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/serviceA-gw.yml`{{execute}}
+`kubectl apply -f serviceA-gw.yml`{{execute}}
 
 Определим правило маршрутизации:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/inbound-to-serviceA-vs.yml`{{execute}}
+`kubectl apply -f inbound-to-serviceA-vs.yml`{{execute}}
 
-Подробно тип манифестов выше рассмотрены в упражнении: `https://www.katacoda.com/artashesavetisyan/scenarios/sc1`{{copy}}
+Подробно тип манифестов выше рассмотрены в упражнении: `https://dev2-84.pcbltools.ru/ui/ArtashesAvetisyan/sc1/`{{copy}}
 
 Проверим готовность подов:
 `kubectl get pods --all-namespaces`{{execute}}
 
-Все поды, за исключением katacoda-cloud-provider, должны иметь статус Running, дождитесь нужного статсуса (в зависисмоти от нагрузки на серверы Katacoda это время может сильно варьировать).
+Все поды должны иметь статус Running, дождитесь нужного статсуса.
 
 И наконец совершим GET запрос по адресу ingress-шлюза:
 `curl -v http://$GATEWAY_URL/service-a`{{execute}}

@@ -3,10 +3,10 @@
 ![Mesh configuration](../assets/sc2-2.png)
 
 Давайте установим ServiceB:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/service-b-deployment.yml`{{execute}}
+`kubectl apply -f service-b-deployment.yml`{{execute}}
 
 Применим манифест Service для деплоймента выше:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/producer-internal-host.yml`{{execute}}
+`kubectl apply -f producer-internal-host.yml`{{execute}}
 
 Определим правило маршрутизации запросов из ServiceA на хост producer-internal-host.
 
@@ -30,7 +30,7 @@ spec:
 ```
 
 Применим данный манифест
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/producer-internal-host-vs.yml`{{execute}}
+`kubectl apply -f producer-internal-host-vs.yml`{{execute}}
 
 Проверим готовность подов:
 `kubectl get pods --all-namespaces`{{execute}}

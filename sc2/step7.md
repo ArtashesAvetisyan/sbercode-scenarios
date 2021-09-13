@@ -28,7 +28,7 @@ spec:
 Как видите, теперь в блоке destination присутствует только хост service-c-srv, который ведет на ServiceC. Напомню, ServiceA продолжит высылать запросы на хост producer-internal-host. Но сработает перенаправление на ServiceC, вместо ServiceB.
 
 Применим манифест:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/producer-internal-host-100-c-vs.yml`{{execute}}
+`kubectl apply -f producer-internal-host-100-c-vs.yml`{{execute}}
 
 Совершим несколько запросов на ingress-шлюз:
 `curl -v http://$GATEWAY_URL/service-a`{{execute}}

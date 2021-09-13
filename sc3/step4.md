@@ -43,10 +43,10 @@ spec:
 Таким образом мы достигнем перенаправления трафика при помощи envoy-прокси в поде с бизнес сервисом из порта 80, куда направляет запросы ServiceG, в порт 443.
 
 Применим DestinationRule:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc3/src/outbound-oracle-dr.yml`{{execute}}
+`kubectl apply -f outbound-oracle-dr.yml`{{execute}}
 
 Применим ServiceEntry:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc3/src/oracle-host-se.yml`{{execute}}
+`kubectl apply -f oracle-host-se.yml`{{execute}}
 
 Совершим GET запрос по адресу ingress-шлюза:
 `curl -v http://$GATEWAY_URL/service-g`{{execute}}

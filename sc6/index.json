@@ -21,6 +21,12 @@
     },
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "service-b-deployment.yml", "target": "/root"},
+        {"file": "inbound-to-service-b-vs.yml", "target": "/root"}
+      ]
     }
   },
   "environment": {

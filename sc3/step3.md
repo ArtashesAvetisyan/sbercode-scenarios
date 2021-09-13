@@ -3,16 +3,16 @@
 ![Mesh configuration](../assets/sc3-1.png)
 
 Давайте установим ServiceG:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc3/src/service-g-deployment.yml`{{execute}}
+`kubectl apply -f service-g-deployment.yml`{{execute}}
 
 Применим Service для деплоймента выше:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc3/src/service-g-srv.yml`{{execute}}
+`kubectl apply -f service-g-srv.yml`{{execute}}
 
 Создадим Gateway для маршрутизации запросов из ingress-шлюза в ServiceG:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc3/src/service-g-gw.yml`{{execute}}
+`kubectl apply -f service-g-gw.yml`{{execute}}
 
 И применим правило маршрутизации:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc3/src/inbound-to-service-g-vs.yml`{{execute}}
+`kubectl apply -f inbound-to-service-g-vs.yml`{{execute}}
 
 Проверим готовность подов:
 `kubectl get pods --all-namespaces`{{execute}}

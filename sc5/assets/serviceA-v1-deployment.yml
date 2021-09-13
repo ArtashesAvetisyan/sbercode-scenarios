@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-a-v1-deployment
+  labels:
+    app: service-a-app
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-a-app
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: service-a-app
+        version: v1
+    spec:
+      containers:
+        - name: service-a-container
+          image: artashesavetisyan/istio-basics-course:service-a-v4
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+          securityContext:
+            runAsUser: 1000

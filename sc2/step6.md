@@ -38,10 +38,10 @@ spec:
 Ключи spec.hosts, spec.ports[0].number, spec.ports[0].protocol содержат значение имени хоста, запросы на который следует разрешить, номера его порта, вид протокола.
 
 Применим ServiceEntry:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/worldtime-host-se.yml`{{execute}}
+`kubectl apply -f worldtime-host-se.yml`{{execute}}
 
 Создадим манифест Gateway для исходящего трафика:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/worldtime-gw.yml`{{execute}}
+`kubectl apply -f worldtime-gw.yml`{{execute}}
 
 Рассмотрим новое правило маршрутизации:
 ```
@@ -79,7 +79,7 @@ spec:
 В соответствии с этим манифестом новое правило будет работать при вызовах на хост worldtimeapi.org из шлюза istio-egressgateway, а также из любого envoy-прокси в неймспейсе. Если вызов прийдет из любого envoy-прокси в неймспейсе (кроме istio-egressgateway), произойдет его перенаправление на хост istio-egressgateway. Если поступит запрос из istio-egressgateway, то он будет направлен на хост worldtimeapi.org. Таким образом достигается сосредоточение всех исходящих вызовов в кластере на шлюз istio-egressgateway.
 
 Применим это правило:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/outbound-srv-c-to-worldtime-vs.yml`{{execute}}
+`kubectl apply -f outbound-srv-c-to-worldtime-vs.yml`{{execute}}
 
 Теперь исходящий трафик направляется через egress-шлюз и достигает worldtimeapi.org.
 

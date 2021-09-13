@@ -5,25 +5,25 @@
 ![Mesh configuration](../assets/sc2-2.png)
 
 Давайте установим ServiceA:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/serviceA-v1-deployment.yml`{{execute}}
+`kubectl apply -f serviceA-v1-deployment.yml`{{execute}}
 
 Применим Service для деплоймента выше:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/serviceA-srv.yml`{{execute}}
+`kubectl apply -f serviceA-srv.yml`{{execute}}
 
 Создадим Gateway:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/serviceA-gw.yml`{{execute}}
+`kubectl apply -f serviceA-gw.yml`{{execute}}
 
 Определим правило маршрутизации:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/inbound-to-serviceA-vs.yml`{{execute}}
+`kubectl apply -f inbound-to-serviceA-vs.yml`{{execute}}
 
 Давайте установим ServiceB:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/service-b-deployment.yml`{{execute}}
+`kubectl apply -f service-b-deployment.yml`{{execute}}
 
 Применим манифест Service для service-b-deployment:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/producer-internal-host.yml`{{execute}}
+`kubectl apply -f producer-internal-host.yml`{{execute}}
 
 Применим правило маршрутизации запросов из ServiceA в ServiceB:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc1/src/producer-internal-host-vs.yml`{{execute}}
+`kubectl apply -f producer-internal-host-vs.yml`{{execute}}
 
 Подробно тип манифестов выше рассмотрены в упражнении: `https://www.katacoda.com/artashesavetisyan/scenarios/sc1`{{copy}} и `https://www.katacoda.com/artashesavetisyan/scenarios/sc2`{{copy}}
 
