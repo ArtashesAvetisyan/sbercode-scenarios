@@ -3,7 +3,7 @@
 Этот сервис при получении запроса на адрес http://localhost:8083/, для формирования ответа, запрашивает информацию у поставщика по адресу http://www.oracle.com/index.html, получив ответ, возвращает данные в своем ответе.
 
 Исходный код приложения:
-`https://github.com/avsinsight/katacoda-scenarios/tree/main/apps/ServiceG`{{copy}}
+`https://github.com/ArtashesAvetisyan/sbercode-scenarios/tree/master/apps/ServiceG`{{copy}}
 
 Итак, бизнес сервис совершает GET запросы на внешний поставщик по адресу: `http://www.oracle.com/index.html`
 

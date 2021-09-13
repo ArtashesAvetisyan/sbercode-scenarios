@@ -28,12 +28,12 @@
 Подробно тип манифестов выше рассмотрены в упражнении: `https://dev2-84.pcbltools.ru/ui/ArtashesAvetisyan/sc1/`{{copy}} и `https://dev2-84.pcbltools.ru/ui/ArtashesAvetisyan/sc2/`{{copy}}
 
 Исходный код приложений:
-`https://github.com/avsinsight/katacoda-scenarios/tree/main/apps`{{copy}}
+`https://github.com/ArtashesAvetisyan/sbercode-scenarios/tree/master/apps`{{copy}}
 
 Проверим готовность подов:
 `kubectl get pods --all-namespaces`{{execute}}
 
-Все поды, за исключением katacoda-cloud-provider, должны иметь статус Running, дождитесь нужного статсуса (в зависисмоти от нагрузки на серверы Katacoda это время может сильно варьировать).
+Все поды должны иметь статус Running, дождитесь нужного статсуса.
 
 
 Совершим GET запрос по адресу ingress-шлюза:

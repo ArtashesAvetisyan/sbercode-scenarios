@@ -18,6 +18,6 @@ ServiceA при получении запроса на адрес http://localho
 
 Исходный код приложений:
 
-`https://github.com/avsinsight/katacoda-scenarios/tree/main/apps`{{copy}}
+`https://github.com/ArtashesAvetisyan/sbercode-scenarios/tree/master/apps`{{copy}}
 
 Перейдем к следующему шагу.

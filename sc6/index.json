@@ -24,8 +24,15 @@
     },
     "assets": {
       "host01": [
+        {"file": "serviceA-v1-deployment.yml", "target": "/root"},
+        {"file": "serviceA-srv.yml", "target": "/root"},
+        {"file": "serviceA-gw.yml", "target": "/root"},
+        {"file": "inbound-to-serviceA-vs.yml", "target": "/root"},
         {"file": "service-b-deployment.yml", "target": "/root"},
-        {"file": "inbound-to-service-b-vs.yml", "target": "/root"}
+        {"file": "producer-internal-host.yml", "target": "/root"},
+        {"file": "producer-internal-host-vs.yml", "target": "/root"},
+        {"file": "autho-policy.yml", "target": "/root"},
+        {"file": "autho-policy-non-istio-sestem.yml", "target": "/root"}
       ]
     }
   },

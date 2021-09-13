@@ -22,7 +22,7 @@ spec:
 Обратите внимание на ключ spec.selector, относящий данную политику к поду с селектором `app:service-a-app`, ключ spec.action, который содержит вид политики (в данном случае - запрещающая) и spec.rules - содержащий блок детализации правила, в данном случае правило будет относиться к запросам из пространства имен istio-system.
 
 Применим данный манифест:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc6/src/autho-policy.yml`{{execute}}
+`kubectl apply -f autho-policy.yml`{{execute}}
 
 Подождем 5-10 секунд для применения политики и совершим GET запрос в адрес ingress-шлюза, как ранее:
 `curl -v http://$GATEWAY_URL/service-a`{{execute}}
@@ -60,7 +60,7 @@ spec:
 Обратите внимание на отличие от предыдущего манифеста: значение ключа spec.rules[0].from[0].source в данном случае `notNamespaces: ["istio-system"]`, что меняет эффект политики на запрет вызовов ServiceA из всех пространств имен, за исключением istio-system.
 
 Обновим политику:
-`kubectl apply -f https://raw.githubusercontent.com/avsinsight/katacoda-scenarios/main/sc6/src/autho-policy-non-istio-sestem.yml`{{execute}}
+`kubectl apply -f autho-policy-non-istio-sestem.yml`{{execute}}
 
 Совершим GET запрос в адрес ingress-шлюза:
 `curl -v http://$GATEWAY_URL/service-a`{{execute}}
