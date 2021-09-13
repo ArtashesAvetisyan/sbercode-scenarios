@@ -8,7 +8,7 @@
         "text": "step1.md"
       },
       {
-        "title": "Шаг 2 - Установка Istio",
+        "title": "Шаг 2 - Конфигурация Istio",
         "courseData": "install_istio.sh",
         "text": "step2.md"
       },
