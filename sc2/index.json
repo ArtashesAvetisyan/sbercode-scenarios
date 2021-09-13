@@ -1,6 +1,6 @@
 {
   "title": "Маршрутизация трафика внутри service mesh",
-  "description": "Рассмотьрм маршрутизацию трафика внутри service mesh",
+  "description": "Рассмотрим маршрутизацию трафика внутри service mesh",
   "details": {
     "steps": [
       {
@@ -43,6 +43,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "kubernetes-cluster-running:1.18"
+    "imageid": "k3s-istio:1.10.1"
   }
 }

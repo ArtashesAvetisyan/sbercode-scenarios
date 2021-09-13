@@ -26,7 +26,7 @@ NAME              STATUS   ROLES                  AGE     VERSION
 
 Выполним команду: `istioctl -c /etc/rancher/k3s/k3s.yaml install --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY`{{execute}}
 
-Входе выполнения следует подтвердить намерение указав в терминале символ `y`{{copy}}
+Входе выполнения следует подтвердить намерение указав в терминале символ `y`
 
 ## Создание и конфигурация пространства имен
 
