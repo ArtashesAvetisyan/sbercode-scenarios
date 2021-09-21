@@ -4,10 +4,6 @@
   "details": {
     "steps": [
       {
-        "title": "Маршрутизация трафика внутри service mesh",
-        "text": "intro.md"
-      },
-      {
         "title": "Шаг 1 - Подготовка среды выполнения",
         "text": "step1.md"
       },
@@ -57,8 +53,7 @@
         {"file": "worldtime-gw.yml", "target": "/root"},
         {"file": "outbound-srv-c-to-worldtime-vs.yml", "target": "/root"},
         {"file": "producer-internal-host-100-c-vs.yml", "target": "/root"},
-        {"file": "serviceA-srv.yml", "target": "/root"},
-        {"file": "external-service.jar", "target": "/root"}
+        {"file": "serviceA-srv.yml", "target": "/root"}
       ]
     }
   },
