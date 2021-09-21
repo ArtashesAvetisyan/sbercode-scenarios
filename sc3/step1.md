@@ -42,7 +42,7 @@ NAME              STATUS   ROLES                  AGE     VERSION
 
 Внесем новоепространство в контекс Kubernetes: `kubectl config set-context --current --namespace=dev-service-mesh`{{execute}}
 
-Активирум автоматическое внедрение контейнера с прокси-сервером Envoy в каждый создаваемый под в dev-service-mesh:
+Активируем автоматическое внедрение контейнера с прокси-сервером Envoy в каждый создаваемый под в dev-service-mesh:
 
 `kubectl label namespace dev-service-mesh istio-injection=enabled`{{execute}}
 
