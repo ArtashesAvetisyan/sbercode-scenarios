@@ -4,6 +4,10 @@
   "details": {
     "steps": [
       {
+        "title": "Маршрутизация трафика внутри service mesh",
+        "text": "intro.md"
+      },
+      {
         "title": "Шаг 1 - Подготовка среды выполнения",
         "text": "step1.md"
       },
