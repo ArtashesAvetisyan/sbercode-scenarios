@@ -8,15 +8,15 @@
         "text": "intro.md"
       },
       {
-        "title": "Шаг 1 - Подготовка среды выполнения",
+        "title": "Подготовка среды выполнения",
         "text": "step1.md"
       },
       {
-        "title": "Шаг 2 - Установка ServiceB, настройка входящего трафика",
+        "title": "Установка ServiceB, настройка входящего трафика",
         "text": "step2.md"
       },
       {
-        "title": "Шаг 3 - Создание EnvoyFilter",
+        "title": "Создание EnvoyFilter",
         "text": "step3.md"
       },
       {

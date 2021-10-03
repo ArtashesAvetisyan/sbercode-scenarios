@@ -8,31 +8,31 @@
         "text": "intro.md"
       },
       {
-        "title": "Шаг 1 - Подготовка среды выполнения",
+        "title": "Подготовка среды выполнения",
         "text": "step1.md"
       },
       {
-        "title": "Шаг 2 - Сценарии упражнения",
+        "title": "Сценарии упражнения",
         "text": "step2.md"
       },
       {
-        "title": "Шаг 3 - Маршрутизация входящего трафика в ServiceA",
+        "title": "Маршрутизация входящего трафика в ServiceA",
         "text": "step3.md"
       },
       {
-        "title": "Шаг 4 - Направление исходящих запросов из ServiceA в ServiceB.",
+        "title": "Направление исходящих запросов из ServiceA в ServiceB.",
         "text": "step4.md"
       },
       {
-        "title": "Шаг 5 - Расщепление трафика из ServiceA.",
+        "title": "Расщепление трафика из ServiceA.",
         "text": "step5.md"
       },
       {
-        "title": "Шаг 6 - Открытие исходящего трафика в worldtimeapi.org",
+        "title": "Открытие исходящего трафика в worldtimeapi.org",
         "text": "step6.md"
       },
       {
-        "title": "Шаг 7 - Перевод всех запросов из ServiceA в ServiceC",
+        "title": "Перевод всех запросов из ServiceA в ServiceC",
         "text": "step7.md"
       },
       {
