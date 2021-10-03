@@ -2,7 +2,11 @@
 
 ## Запуск виртуальной машины
 
-Перед началом запуска упражнения была развернута виртуальные машина, на которой был установлен Kubernetes и организован минимальный кластер из одного управляющего узла (control-plane), где был установлен и запущен Istio.
+Перед началом запуска упражнения была развернута виртуальные машина, на которой был установлен Kubernetes и организован минимальный кластер из одного управляющего узла (control-plane), где был установлен Istio.
+
+Давайте запустим Kubernetes и Istio виполнив скрипт:
+
+`launch.sh`{{execute}}
 
 До перехода к следующему шагу необходимо убедиться, что узел Kubernetes (node) находятся в состоянии Ready.
 
@@ -24,9 +28,7 @@ NAME              STATUS   ROLES                  AGE     VERSION
 
 ## Конфигурация Istio
 
-Выполним команду: `istioctl -c /etc/rancher/k3s/k3s.yaml install --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY`{{execute}}
-
-Входе выполнения следует подтвердить намерение указав в терминале символ "y"
+Выполним команду: `istioctl -c /etc/rancher/k3s/k3s.yaml install -y --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY --set values.pilot.resources.requests.memory=128Mi --set values.pilot.resources.requests.cpu=50m --set values.global.proxy.resources.requests.cpu=10m --set values.global.proxy.resources.requests.memory=32Mi`{{execute}}
 
 В случае успеха, в выводе вышеприведенной команды должны быть строки:
 ```
