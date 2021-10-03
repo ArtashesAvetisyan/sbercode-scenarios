@@ -1,6 +1,6 @@
 На этом шаге мы осуществим конфигурацию Istio
 
-Выполним команду: `istioctl -c /etc/rancher/k3s/k3s.yaml install --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY`{{execute}}
+Выполним команду: `istioctl -c /etc/rancher/k3s/k3s.yaml install -y --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY --set values.pilot.resources.requests.memory=128Mi --set values.pilot.resources.requests.cpu=50m --set values.global.proxy.resources.requests.cpu=10m --set values.global.proxy.resources.requests.memory=32Mi`{{execute}}
 
 Входе выполнения следует подтвердить намерение указав в терминале символ "y"
 
