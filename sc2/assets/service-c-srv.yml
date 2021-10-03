@@ -9,6 +9,6 @@ spec:
   ports:
     - port: 80
       name: http-80
-      targetPort: 8083
+      targetPort: 8082
   selector:
     app: service-c-app
