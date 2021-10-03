@@ -67,3 +67,5 @@ spec:
 
 Теперь мы снова видим успешный ответ:
 `Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from ServiceB!`
+
+1

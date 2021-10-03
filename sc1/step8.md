@@ -45,3 +45,5 @@
 Проверим логи доступа Envoy в поде с бизнес сервисом:
 
 `kubectl logs -l app=service-b-app -c istio-proxy`{{execute}}
+
+1
