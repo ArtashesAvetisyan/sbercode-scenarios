@@ -4,6 +4,10 @@
   "details": {
     "steps": [
       {
+        "title": "Введение",
+        "text": "intro.md"
+      },
+      {
         "title": "Шаг 1 - Подготовка среды выполнения",
         "text": "step1.md"
       },
@@ -24,9 +28,6 @@
         "text": "finish.md"
       }
     ],
-    "intro": {
-      "text": "intro.md"
-    },
     "assets": {
       "host01": [
         {"file": "service-g-deployment.yml", "target": "/root"},
