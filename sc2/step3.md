@@ -14,7 +14,7 @@
 Определим правило маршрутизации:
 `kubectl apply -f inbound-to-serviceA-vs.yml`{{execute}}
 
-Подробно тип манифестов выше рассмотрены в упражнении: `https://dev2-84.pcbltools.ru/ui/ArtashesAvetisyan/sc1/`{{copy}}
+Подробно тип манифестов выше рассмотрены в упражнении: [Конфигурация окружения и запуск прикладного сервиса в sevice mesh](https://sbercode.pcbltools.ru/ui/ArtashesAvetisyan/sc1/)
 
 Проверим готовность подов:
 `kubectl get pods --all-namespaces`{{execute}}

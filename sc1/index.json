@@ -1,6 +1,6 @@
 {
-  "title": "1. Установка Istio",
-  "description": "Learn how to create your first Katacoda scenario",
+  "title": "1. Конфигурация окружения и запуск прикладного сервиса в sevice mesh",
+  "description": "Изучим конфигурацию окружения и запустим прикладной сервис в sevice mesh",
   "details": {
     "steps": [
       {

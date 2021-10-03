@@ -25,7 +25,7 @@
 Применим правило маршрутизации запросов из ServiceA в ServiceB:
 `kubectl apply -f producer-internal-host-vs.yml`{{execute}}
 
-Подробно тип манифестов выше рассмотрены в упражнении: `https://dev2-84.pcbltools.ru/ui/ArtashesAvetisyan/sc1/`{{copy}} и `https://dev2-84.pcbltools.ru/ui/ArtashesAvetisyan/sc2/`{{copy}}
+Подробно тип манифестов выше рассмотрены в упражнении: [Конфигурация окружения и запуск прикладного сервиса в sevice mesh](https://sbercode.pcbltools.ru/ui/ArtashesAvetisyan/sc1/) и [Маршрутизация трафика внутри service mesh](https://sbercode.pcbltools.ru/ui/ArtashesAvetisyan/sc2/)
 
 Исходный код приложений:
 `https://github.com/ArtashesAvetisyan/sbercode-scenarios/tree/master/apps`{{copy}}
