@@ -20,12 +20,12 @@ spec:
               number: 80
     - match:
         - uri:
-             exact: /api/timezone/Europe
-        rewrite:
-          uri: /service-ext
-        - gateways:
-            - istio-egressgateway
-          port: 80
+            exact: /api/timezone/Europe
+          rewrite:
+            uri: /service-ext
+          gateways:
+              - istio-egressgateway
+            port: 80
       route:
         - destination:
             host: istio-ingressgateway.istio-system.svc.cluster.local
