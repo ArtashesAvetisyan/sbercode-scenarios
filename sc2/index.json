@@ -4,6 +4,10 @@
   "details": {
     "steps": [
       {
+        "title": "Введение",
+        "text": "intro.md"
+      },
+      {
         "title": "Шаг 1 - Подготовка среды выполнения",
         "text": "step1.md"
       },
@@ -30,14 +34,12 @@
       {
         "title": "Шаг 7 - Перевод всех запросов из ServiceA в ServiceC",
         "text": "step7.md"
+      },
+      {
+        "title": "Завершение",
+        "text": "finish.md"
       }
     ],
-    "intro": {
-      "text": "intro.md"
-    },
-    "finish": {
-      "text": "finish.md"
-    },
     "assets": {
       "host01": [
         {"file": "serviceA-v1-deployment.yml", "target": "/root"},

@@ -18,13 +18,14 @@
       {
         "title": "Шаг 4 - Конфигурацию исходящего HTTPS трафика.",
         "text": "step4.md"
+      },
+      {
+        "title": "Завершение",
+        "text": "finish.md"
       }
     ],
     "intro": {
       "text": "intro.md"
-    },
-    "finish": {
-      "text": "finish.md"
     },
     "assets": {
       "host01": [

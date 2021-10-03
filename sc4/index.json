@@ -4,6 +4,10 @@
   "details": {
     "steps": [
       {
+        "title": "Введение",
+        "text": "intro.md"
+      },
+      {
         "title": "Шаг 1 - Подготовка среды выполнения",
         "text": "step1.md"
       },
@@ -14,14 +18,12 @@
       {
         "title": "Шаг 3 - Создание EnvoyFilter",
         "text": "step3.md"
+      },
+      {
+        "title": "Завершение",
+        "text": "finish.md"
       }
     ],
-    "intro": {
-      "text": "intro.md"
-    },
-    "finish": {
-      "text": "finish.md"
-    },
     "assets": {
       "host01": [
         {"file": "service-b-deployment.yml", "target": "/root"},
