@@ -4,7 +4,7 @@ metadata:
   name: outbound-srv-c-to-worldtime-vs
 spec:
   hosts:
-    - worldtimeapi.org
+    - istio-ingressgateway.istio-system.svc.cluster.local
   gateways:
     - istio-egressgateway
     - mesh
@@ -19,13 +19,9 @@ spec:
             port:
               number: 80
     - match:
-        - uri:
-            exact: /api/timezone/Europe
-          rewrite:
-            uri: /service-ext
-          gateways:
-              - istio-egressgateway
-            port: 80
+        - gateways:
+            - istio-egressgateway
+          port: 80
       route:
         - destination:
             host: istio-ingressgateway.istio-system.svc.cluster.local
