@@ -47,11 +47,10 @@ spec:
 `Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from ServiceB!`
 
 Но будет также новый вариант:
-`Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from ServiceC! Calling worldtimeapi.org API... 502 Bad Gateway: [no body]`
 
-Такой ответ - результат направления запроса из ServiceA в ServiceC, который пытается получить данные из своего поставщика в Интернете по адресу `http://worldtimeapi.org/api/timezone/Europe`.
+`Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from Service-C! Calling master system API... 404 Not Found: [no body]`
 
-Однако, на данном шаге исходящие запросы из нашего кластера запрещены, поэтому в ответе мы видим `502 Bad Gateway: [no body]`.
+Такой ответ - результат направления запроса из ServiceA в ServiceC, который пытается получить данные из своего поставщика http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext.
 
 При последующих вызовах ответы продрожат чередоваться, так как мы расщепили трафик на два сервиса, как отражено на схеме.
 

@@ -27,28 +27,6 @@
 ✔ Installation complete
 ```
 
-Просмотрим манифест worldtime-host-se.yml:
-```
-apiVersion: networking.istio.io/v1alpha3
-kind: ServiceEntry
-metadata:
-  name: service-ext-host-se
-spec:
-  hosts:
-    - istio-ingressgateway.istio-system.svc.cluster.local
-  ports:
-    - number: 80
-      name: http
-      protocol: HTTP
-  resolution: DNS
-  location: MESH_EXTERNAL
-```
-
-Ключи spec.hosts, spec.ports[0].number, spec.ports[0].protocol содержат значение имени хоста, запросы на который следует разрешить, номера его порта, вид протокола.
-
-Применим ServiceEntry:
-`kubectl apply -f service-ext-host-se.yml`{{execute}}
-
 Создадим манифест Gateway для исходящего трафика:
 `kubectl apply -f service-ext-outbound-gw.yml`{{execute}}
 
@@ -85,12 +63,12 @@ spec:
               number: 80
 ```
 
-В соответствии с этим манифестом новое правило будет работать при вызовах на хост worldtimeapi.org из шлюза istio-egressgateway, а также из любого envoy-прокси в неймспейсе. Если вызов прийдет из любого envoy-прокси в неймспейсе (кроме istio-egressgateway), произойдет его перенаправление на хост istio-egressgateway. Если поступит запрос из istio-egressgateway, то он будет направлен на хост worldtimeapi.org. Таким образом достигается сосредоточение всех исходящих вызовов в кластере на шлюз istio-egressgateway.
+В соответствии с этим манифестом новое правило будет работать при вызовах на хост istio-ingressgateway.istio-system.svc.cluster.local из шлюза istio-egressgateway, а также из любого envoy-прокси в неймспейсе. Если вызов прийдет из любого envoy-прокси в неймспейсе (кроме istio-egressgateway), произойдет его перенаправление на хост istio-egressgateway. Если поступит запрос из istio-egressgateway, то он будет направлен на хост istio-ingressgateway.istio-system.svc.cluster.local. Таким образом достигается сосредоточение всех исходящих вызовов в кластере на шлюз istio-egressgateway.
 
 Применим это правило:
 `kubectl apply -f outbound-srv-c-to-service-ext-vs.yml`{{execute}}
 
-Теперь исходящий трафик направляется через egress-шлюз и достигает worldtimeapi.org.
+Теперь исходящий трафик направляется через egress-шлюз и достигает istio-ingressgateway.istio-system.svc.cluster.local.
 
 Совершим несколько запросов на ingress-шлюз, напомню, запросы из ServiceA все также балансируются между ServiceB и ServiceC:
 
@@ -101,15 +79,11 @@ spec:
 
 Или из ServiceC:
 ```
-Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from ServiceC! Calling worldtimeapi.org API... Received response from worldtimeapi.org: Europe/Amsterdam
-Europe/Andorra
-Europe/Astrakhan
-Europe/Athens
-Europe/Belgrade
-Europe/Berlin
-Europe/... (printed only 100 symbols from response body beginning)
+Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from Service-EXT! Calling master system API... Received response from master system (http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext): Hello from External Cluster Service!
 ```
 
-Обратите внимание, что в части ответа из ServiceC присутвует ответ из worldtimeapi.org по запросу `http://worldtimeapi.org/api/timezone/Europe`
+Обратите внимание, что в части ответа из ServiceC присутвует ответ из кластера external-cluster по запросу `http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext`
+
+Если исходящий трафик планируется направить на хост, который не зарегистриован в сети (в другой сетевой контур, например, в открытом Интернете), то в том случае следует дополнительно создать манифест ServiceEntry с описанием ного хоста.
 
 Перейдем далее.

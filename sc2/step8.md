@@ -1,4 +1,4 @@
-Теперь, когда мы убедились в работоспособности пути ingress-шлюз -> ServiceA -> SericeC -> worldtimeapi.org, давайте переключим 100% трафика из ServiceA в ServiceC.
+Теперь, когда мы убедились в работоспособности пути ingress-шлюз -> ServiceA -> SericeC -> external-cluster, давайте переключим 100% трафика из ServiceA в ServiceC.
 
 Для этого нам нужно будет обновить манифест producer-internal-host-vs.
 
@@ -35,11 +35,5 @@ spec:
 
 Теперь все ответы из ServiceC:
 ```
-Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from ServiceC! Calling worldtimeapi.org API... Received response from worldtimeapi.org: Europe/Amsterdam
-Europe/Andorra
-Europe/Astrakhan
-Europe/Athens
-Europe/Belgrade
-Europe/Berlin
-Europe/... (printed only 100 symbols from response body beginning)
+Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from Service-EXT! Calling master system API... Received response from master system (http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext): Hello from External Cluster Service!
 ```
