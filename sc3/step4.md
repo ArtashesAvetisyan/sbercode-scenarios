@@ -1,61 +1,58 @@
-На данном шаге мы откроем исходящий HTTPS трафик из service mesh для получения ответов из oracle.com на запросы из ServiceG.
+На этом шаге мы создадим новое пространство имен или виртуальный кластер, который изолирован от текущего пространства имен dev-service-mesh и будет содержать прикладной сервис, поставляющий данные для Service C.
 
-Рассмотрим манифест outbound-oracle-dr.yml:
+Весь исходящий трафик из dev-service-mesh будут направляться на egress-шлюз, который в свою очередь будет проксировать все запросы в пространство external-cluster.
+
+Новый кластер мы будем создавать аналогично тому, как это подробно представлено в упражнении  [Конфигурация окружения и запуск прикладного сервиса в sevice mesh](https://sbercode.pcbltools.ru/ui/ArtashesAvetisyan/sc1/)
+
+Давайте создадим новое пространство имен (виртуальный кластер):
+
+`kubectl create namespace external-cluster`{{execute}}
+
+Настроим авто-внедрение envoy-прокси в данном пространстве имен:
+
+`kubectl label namespace external-cluster istio-injection=enabled`{{execute}}
+
+Обратите внимание, в отличие от аналогичного шага в упражнении  [Маршрутизация трафика внутри service mesh](https://sbercode.pcbltools.ru/ui/ArtashesAvetisyan/sc2/) ... 
+
 ```
-apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
+kind: Gateway
 metadata:
-  name: www-oracle-com-dr
+  name: service-ext-gw
 spec:
-  host: www.oracle.com
-  trafficPolicy:
-    portLevelSettings:
-      - port:
-          number: 80
-        tls:
-          mode: SIMPLE
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 443
+        name: https
+        protocol: HTTPS
+      tls:
+        mode: MUTUAL
+      hosts:
+        - "*"
 ```
+Развернем приведенный выше манифест:
 
-Обратите внимание на ключ spec.trafficPolicy.portLevelSettings[0].tls со значением `mode: SIMPLE`. Такое значение позволит зашифровать HTTP трафик, поступивший на указанный порт 80 для хоста www.oracle.com.
+`kubectl apply -f service-ext-deployment.yml -n external-cluster`{{execute}}
 
-Рассмотрим манифест oracle-host-se.yml:
-```
-apiVersion: networking.istio.io/v1alpha3
-kind: ServiceEntry
-metadata:
-  name: www-oracle-com
-spec:
-  hosts:
-    - www.oracle.com
-  ports:
-    - number: 80
-      name: http-port
-      protocol: HTTP
-      targetPort: 443
-    - number: 443
-      name: https-port
-      protocol: HTTPS
-  resolution: DNS
-```
+Создадим для него Service:
 
-Ключи spec.hosts, а также две пары ключей number и protocol обозначают допустимые протоколы для приведенного хоста, но обратите внимание на ключ spec.ports[0].targetPort (443). При налчии этого ключа, трафик, который поступит на порт в значении spec.ports[0].number (80), будет перенаправлен на порт в значении spec.ports[0].targetPort (443).
+`kubectl apply -f service-ext-srv.yml -n external-cluster`{{execute}}
 
-Таким образом мы достигнем перенаправления трафика при помощи envoy-прокси в поде с бизнес сервисом из порта 80, куда направляет запросы ServiceG, в порт 443.
+Откроем доступ к хосту данного сервиса через ingress-шлюз:
 
-Применим DestinationRule:
-`kubectl apply -f outbound-oracle-dr.yml`{{execute}}
+`kubectl apply -f service-ext-gw.yml -n external-cluster`{{execute}}
 
-Применим ServiceEntry:
-`kubectl apply -f oracle-host-se.yml`{{execute}}
+Настроем внутрикластерную маршрутизацию трафика из ingress-шлюза в прикладной сервис:
 
-Совершим GET запрос по адресу ingress-шлюза:
-`curl -v http://$GATEWAY_URL/service-g`{{execute}}
+`kubectl apply -f inbound-to-service-ext-vs.yml -n external-cluster`{{execute}}
 
-В ответе мы получим:
-`Hello from ServiceG! Calling master system API... Received response from master system (http://www.oracle.com/index.html): <!DOCTYPE html><html lang="en"><head><link href="/product-navigator/main__product-navigator__1.29.44.css" as="style" rel="preload"/><meta charSet="utf-8"/><title>Oracle ...`
+Убедимся, что все поды работают:
 
-Как мы убедились ранее на шаге 2, данную страницу можно получить только при GET запросе с применением HTTPS протокола.
+`kubectl get pods --all-namespaces`{{execute}}
 
-Кроме того, вся сетевая логика, связанная с созданием HTTPS соединения и шифрованием данных, осталась абсолютно прозрачной для бизнес сервиса, который продолжал совершать небезопасные HTTP запросы без TLS шифрования.
+Проверим новый сервис обратившись к нему:
 
-Таким образом мы зашифровали HTTP трафик и создали HTTPS соединение.
+`curl -v http://$GATEWAY_URL/service-ext`{{execute}}
+
+Перейдем далее.

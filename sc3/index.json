@@ -20,8 +20,12 @@
         "text": "step3.md"
       },
       {
-        "title": "Конфигурацию исходящего HTTPS трафика.",
+        "title": "Создание виртуального кластера external-cluster.",
         "text": "step4.md"
+      },
+      {
+        "title": "Конфигурацию исходящего HTTPS трафика.",
+        "text": "step5.md"
       },
       {
         "title": "Завершение",
@@ -35,7 +39,11 @@
         {"file": "service-g-gw.yml", "target": "/root"},
         {"file": "inbound-to-service-g-vs.yml", "target": "/root"},
         {"file": "outbound-oracle-dr.yml", "target": "/root"},
-        {"file": "oracle-host-se.yml", "target": "/root"}
+        {"file": "oracle-host-se.yml", "target": "/root"},
+        {"file": "service-ext-deployment.yml", "target": "/root"},
+        {"file": "service-ext-srv.yml", "target": "/root"},
+        {"file": "service-ext-gw.yml", "target": "/root"},
+        {"file": "inbound-to-service-ext-vs.yml", "target": "/root"}
       ]
     }
   },

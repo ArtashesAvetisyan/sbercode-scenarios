@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: inbound-to-service-ext-vs
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - service-ext-gw
+  http:
+    - match:
+        - uri:
+            exact: /service-ext
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: service-ext-srv
+            port:
+              number: 80
