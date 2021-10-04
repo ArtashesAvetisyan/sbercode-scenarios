@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: service-c-container
-          image: artashesavetisyan/istio-basics-course:service-ext
+          image: artashesavetisyan/istio-basics-course:service-c-03-00
           imagePullPolicy: Always
           ports:
             - containerPort: 8082

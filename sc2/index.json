@@ -28,12 +28,16 @@
         "text": "step5.md"
       },
       {
-        "title": "Открытие исходящего трафика в worldtimeapi.org",
+        "title": "Создание виртуального кластера external-cluster",
         "text": "step6.md"
       },
       {
-        "title": "Перевод всех запросов из ServiceA в ServiceC",
+        "title": "Открытие исходящего трафика в worldtimeapi.org",
         "text": "step7.md"
+      },
+      {
+        "title": "Перевод всех запросов из ServiceA в ServiceC",
+        "text": "step8.md"
       },
       {
         "title": "Завершение",
