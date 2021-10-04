@@ -55,10 +55,14 @@
         {"file": "service-c-deployment.yml", "target": "/root"},
         {"file": "service-c-srv.yml", "target": "/root"},
         {"file": "producer-internal-host-50-c-vs.yml", "target": "/root"},
-        {"file": "worldtime-host-se.yml", "target": "/root"},
-        {"file": "worldtime-gw.yml", "target": "/root"},
-        {"file": "outbound-srv-c-to-worldtime-vs.yml", "target": "/root"},
+        {"file": "service-ext-host-se.yml", "target": "/root"},
+        {"file": "service-ext-outbound-gw.yml", "target": "/root"},
+        {"file": "outbound-srv-c-to-service-ext-vs.yml", "target": "/root"},
         {"file": "producer-internal-host-100-c-vs.yml", "target": "/root"},
+        {"file": "service-ext-deployment.yml", "target": "/root"},
+        {"file": "service-ext-srv.yml", "target": "/root"},
+        {"file": "service-ext-gw.yml", "target": "/root"},
+        {"file": "inbound-to-service-ext-vs.yml", "target": "/root"},
         {"file": "serviceA-srv.yml", "target": "/root"}
       ]
     }
