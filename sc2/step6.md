@@ -28,7 +28,7 @@
 
 `kubectl apply -f inbound-to-service-ext-vs.yml -n external-cluster`{{execute}}
 
-Убедимся, что все поду работают:
+Убедимся, что все поды работают:
 
 `kubectl get pods --all-namespaces`{{execute}}
 
