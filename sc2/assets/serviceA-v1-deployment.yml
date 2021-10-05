@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: service-a-container
-          image: artashesavetisyan/istio-basics-course:service-a-v4
+          image: artashesavetisyan/istio-basics-course:service-a-java-11
           imagePullPolicy: Always
           ports:
             - containerPort: 8081
