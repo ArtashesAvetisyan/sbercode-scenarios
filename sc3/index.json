@@ -20,10 +20,6 @@
         "text": "step3.md"
       },
       {
-        "title": "Создание виртуального кластера external-cluster.",
-        "text": "step4.md"
-      },
-      {
         "title": "Конфигурацию исходящего HTTPS трафика.",
         "text": "step5.md"
       },
