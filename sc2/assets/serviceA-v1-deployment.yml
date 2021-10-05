@@ -25,3 +25,7 @@ spec:
             - containerPort: 8081
           securityContext:
             runAsUser: 1000
+          resources:
+            limits:
+              memory: 32Mi
+              cpu: 100m
