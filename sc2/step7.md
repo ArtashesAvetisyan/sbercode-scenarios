@@ -1,4 +1,4 @@
-На данном шаге мы откроем исходящий трафик из service mesh для получения ответов из worldtimeapi.org на запросы из ServiceC.
+На данном шаге мы откроем исходящий трафик из пространсва имен dev-service-mesh для получения ответов из пространсва имен external-cluster на запросы ServiceC.
 
 Схема service mesh, в соотвесвтии с которой будем настраивать наш кластер:
 
@@ -75,11 +75,11 @@ spec:
 `curl -v http://$GATEWAY_URL/service-a`{{execute}}
 
 На этом шаге все ответы должны быть успешные и иметь вид (если поступили из ServiceB):
-`Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from ServiceB!`
+`Hello from ServiceA! Calling master system API... Received response from master system (http://producer-internal-host): Hello from ServiceB!`
 
 Или из ServiceC:
 ```
-Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from Service-EXT! Calling master system API... Received response from master system (http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext): Hello from External Cluster Service!
+Hello from ServiceA! Calling master system API... Received response from master system (http://producer-internal-host): Hello from ServiceC! Calling master system API... Received response from master system (http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext): Hello from External Cluster Service!
 ```
 
 Обратите внимание, что в части ответа из ServiceC присутвует ответ из кластера external-cluster по запросу `http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext`

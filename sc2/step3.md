@@ -25,7 +25,7 @@
 `curl -v http://$GATEWAY_URL/service-a`{{execute}}
 
 В ответ на совершенный вызов на данном шаге мы должны видеть сообщение:
-`Hello from ServiceA! Calling Producer Service... I/O error on GET request for "http://producer-internal-host:80/": producer-internal-host; nested exception is java.net.UnknownHostException: producer-internal-host`
+`Hello from ServiceA! Calling master system API... I/O error on GET request for "http://producer-internal-host": producer-internal-host; nested exception is java.net.UnknownHostException: producer-internal-host`
 
 Что произошло?
 
