@@ -11,6 +11,12 @@ spec:
         name: https
         protocol: HTTPS
       tls:
-        mode: MUTUAL
+        mode: ISTIO_MUTUAL
+      hosts:
+        - "*"
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
       hosts:
         - "*"
