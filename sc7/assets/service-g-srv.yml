@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-g-srv
+  labels:
+    app: service-g-app
+    service: service-g-app-srv
+spec:
+  ports:
+    - port: 80
+      name: http-80
+      targetPort: 8083
+  selector:
+    app: service-g-app
