@@ -3,7 +3,7 @@
 ![Mesh configuration](../assets/sc3-1.png)
 
 
-`kubectl create -n istio-system secret tls httpbin-credential --key=local.istio-ingressgateway.key --cert=local.istio-ingressgateway.crt`{{execute}}
+`kubectl create -n istio-system secret tls ingressgateway-cred --key=local.istio-ingressgateway.key --cert=local.istio-ingressgateway.crt`{{execute}}
 
 `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=example Inc./CN=istio-system.svc.cluster.local' -keyout istio-ingressgateway.key -out istio-ingressgateway.crt`{{execute}}
 

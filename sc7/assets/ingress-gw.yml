@@ -12,7 +12,7 @@ spec:
         protocol: HTTPS
       tls:
         mode: SIMPLE
-        credentialName: httpbin-credential
+        credentialName: ingressgateway-cred
       hosts:
         - "*"
     - port:
@@ -21,7 +21,7 @@ spec:
         protocol: HTTPS
       tls:
         mode: SIMPLE
-        credentialName: httpbin-credential
+        credentialName: ingressgateway-cred
       hosts:
         - "*"
     - port:
