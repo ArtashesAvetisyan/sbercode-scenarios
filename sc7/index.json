@@ -39,7 +39,7 @@
         {"file": "service-c-gw.yml", "target": "/root"},
         {"file": "inbound-to-service-c-vs.yml", "target": "/root"},
         {"file": "external-cluster-dr.yml", "target": "/root"},
-        {"file": "extrenal-cluster-se.yml", "target": "/root"},
+        {"file": "external-cluster-se.yml", "target": "/root"},
         {"file": "service-ext-deployment.yml", "target": "/root"},
         {"file": "service-ext-srv.yml", "target": "/root"},
         {"file": "service-ext-gw.yml", "target": "/root"},
