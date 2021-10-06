@@ -1,3 +1,16 @@
+
+Развернем egress-шлюз, выполнив команду авто-конфигруации Isto:
+
+`istioctl -c /etc/rancher/k3s/k3s.yaml install -y --set components.egressGateways[0].name=istio-egressgateway --set components.egressGateways[0].enabled=true --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY --set values.pilot.resources.requests.memory=128Mi --set values.pilot.resources.requests.cpu=50m --set values.global.proxy.resources.requests.cpu=10m --set values.global.proxy.resources.requests.memory=32Mi --set values.global.proxy.resources.limits.memory=64Mi --set values.pilot.resources.limits.memory=256Mi`{{execute}}
+
+`kubectl apply -f outbound-srv-c-to-service-ext-vs.yml`{{execute}}
+`kubectl apply -f service-ext-outbound-gw.yml`{{execute}}
+Применим DestinationRule:
+`kubectl apply -f external-cluster-dr.yml`{{execute}}
+
+Совершим GET запрос по адресу ingress-шлюза:
+`curl -v http://$GATEWAY_URL/service-c`{{execute}}
+
 На данном шаге мы откроем исходящий HTTPS трафик из service mesh для получения ответов из oracle.com на запросы из ServiceG.
 
 Рассмотрим манифест outbound-oracle-dr.yml:
@@ -42,14 +55,12 @@ spec:
 
 Таким образом мы достигнем перенаправления трафика при помощи envoy-прокси в поде с бизнес сервисом из порта 80, куда направляет запросы ServiceG, в порт 443.
 
-Применим DestinationRule:
-`kubectl apply -f external-cluster-dr.yml`{{execute}}
+
 
 Применим ServiceEntry:
 `kubectl apply -f external-cluster-se.yml`{{execute}}
 
-Совершим GET запрос по адресу ingress-шлюза:
-`curl -v http://$GATEWAY_URL/service-g`{{execute}}
+
 
 В ответе мы получим:
 `Hello from ServiceG! Calling master system API... Received response from master system (http://www.oracle.com/index.html): <!DOCTYPE html><html lang="en"><head><link href="/product-navigator/main__product-navigator__1.29.44.css" as="style" rel="preload"/><meta charSet="utf-8"/><title>Oracle ...`

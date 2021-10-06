@@ -7,6 +7,7 @@ spec:
   trafficPolicy:
     portLevelSettings:
       - port:
-          number: 80
+          number: 443
         tls:
           mode: ISTIO_MUTUAL
+          sni: istio-ingressgateway.istio-system.svc.cluster.local
