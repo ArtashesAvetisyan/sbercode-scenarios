@@ -2,10 +2,6 @@
 
 Для этого нам нужно будет обновить манифест producer-internal-host-vs.
 
-Схема сети:
-
-![Mesh configuration](../assets/c2-5.png)
-
 Рассмотрим новую версию:
 ```
 apiVersion: networking.istio.io/v1alpha3
