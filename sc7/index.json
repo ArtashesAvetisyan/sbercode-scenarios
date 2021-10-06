@@ -16,7 +16,7 @@
         "text": "step2.md"
       },
       {
-        "title": "Установка ServiceG, внутрисетевая маршрутизация",
+        "title": "Установка ServiceC, внутрисетевая маршрутизация",
         "text": "step3.md"
       },
       {
@@ -30,10 +30,10 @@
     ],
     "assets": {
       "host01": [
-        {"file": "service-g-deployment.yml", "target": "/root"},
-        {"file": "service-g-srv.yml", "target": "/root"},
-        {"file": "service-g-gw.yml", "target": "/root"},
-        {"file": "inbound-to-service-g-vs.yml", "target": "/root"},
+        {"file": "service-c-deployment.yml", "target": "/root"},
+        {"file": "service-c-srv.yml", "target": "/root"},
+        {"file": "service-c-gw.yml", "target": "/root"},
+        {"file": "inbound-to-service-c-vs.yml", "target": "/root"},
         {"file": "outbound-oracle-dr.yml", "target": "/root"},
         {"file": "oracle-host-se.yml", "target": "/root"},
         {"file": "service-ext-deployment.yml", "target": "/root"},
