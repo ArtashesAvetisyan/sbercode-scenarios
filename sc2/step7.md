@@ -74,10 +74,10 @@ spec:
 
 `curl -v http://$GATEWAY_URL/service-a`{{execute}}
 
-На этом шаге все ответы должны быть успешные и иметь вид (если поступили из ServiceB):
+На этом шаге все ответы должны быть успешные и иметь вид (если поступили в ServiceA из ServiceB):
 `Hello from ServiceA! Calling master system API... Received response from master system (http://producer-internal-host): Hello from ServiceB!`
 
-Или из ServiceC:
+Или поступили в ServiceA из ServiceC (см. схему сети выше):
 ```
 Hello from ServiceA! Calling master system API... Received response from master system (http://producer-internal-host): Hello from ServiceC! Calling master system API... Received response from master system (http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext): Hello from External Cluster Service!
 ```
