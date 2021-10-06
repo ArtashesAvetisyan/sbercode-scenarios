@@ -8,7 +8,7 @@ spec:
   servers:
     - port:
         number: 8443
-        name: https
+        name: https-8443
         protocol: HTTPS
       tls:
         mode: SIMPLE
@@ -17,7 +17,7 @@ spec:
         - "*"
     - port:
         number: 443
-        name: https
+        name: https-443
         protocol: HTTPS
       tls:
         mode: SIMPLE

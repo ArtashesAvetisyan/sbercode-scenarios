@@ -41,7 +41,7 @@ spec:
 
 Откроем доступ к хосту данного сервиса через ingress-шлюз:
 
-`kubectl apply -f service-ext-gw.yml -n external-cluster`{{execute}}
+`kubectl apply -f ingress-gw.yml -n external-cluster`{{execute}}
 
 Настроем внутрикластерную маршрутизацию трафика из ingress-шлюза в прикладной сервис:
 
