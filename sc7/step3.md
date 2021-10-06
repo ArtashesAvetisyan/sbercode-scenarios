@@ -8,6 +8,9 @@
 Применим манифест Service для деплоймента ServiceC:
 `kubectl apply -f service-c-srv.yml`{{execute}}
 
+Применим манифест Gateway:
+`kubectl apply -f service-c-gw.yml`{{execute}}
+
 Применим VirtualService:
 `kubectl apply -f inbound-to-service-c-vs.yml`{{execute}}
 
@@ -18,7 +21,6 @@
 
 И наконец совершим GET запрос по адресу ingress-шлюза:
 `curl -v http://$GATEWAY_URL/service-c`{{execute}}
-
 
 В ответе на совершенный вызов на данном шаге мы должны видеть сообщение:
 `Hello from ServiceC! Calling master system API... 404 Not Found: [no body]`
