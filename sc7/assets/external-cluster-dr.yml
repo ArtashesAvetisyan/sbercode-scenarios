@@ -1,9 +1,9 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: www-oracle-com-dr
+  name: external-cluster-dr
 spec:
-  host: www.oracle.com
+  host: istio-ingressgateway.istio-system.svc.cluster.local
   trafficPolicy:
     portLevelSettings:
       - port:

@@ -21,13 +21,13 @@
 
 
 В ответе на совершенный вызов на данном шаге мы должны видеть сообщение:
-`Hello from ServiceC! Calling master system API... 502 Bad Gateway: [no body]`
+`Hello from ServiceC! Calling master system API... 404 Not Found: [no body]`
 
 Что произошло?
 
 Мы совершили запрос в ingress-шлюз, который был перенаправлен в envoy-прокси пода с контейнером ServiceC. Далее запрос был маршрутизирован непосредственно в приложение ServiceC.
 
-ServiceC, получив запрос, совершил запрос по адресу http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext, однако, на данном шаге исходящие запросы из нашего кластера запрещены, поэтому в ответе мы видим `502 Bad Gateway: [no body]`.
+ServiceC, получив запрос, совершил запрос по адресу http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext, однако, на данном шаге за этим адресом нет развернутого сервиса.
 
 Проверим логи доступа Envoy ingress-шлюза:
 `kubectl logs -l app=istio-ingressgateway -n istio-system -c istio-proxy`{{execute}}
