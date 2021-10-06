@@ -11,7 +11,7 @@ spec:
         name: https-8443
         protocol: HTTPS
       tls:
-        mode: SIMPLE
+        mode: MUTUAL
         credentialName: httpbin-credential
       hosts:
         - "*"
@@ -20,7 +20,7 @@ spec:
         name: https-443
         protocol: HTTPS
       tls:
-        mode: SIMPLE
+        mode: MUTUAL
         credentialName: httpbin-credential
       hosts:
         - "*"
