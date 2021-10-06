@@ -1,17 +1,27 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: service-ext-gw
+  name: ingress-gw
 spec:
   selector:
     istio: ingressgateway
   servers:
     - port:
+        number: 8443
+        name: https
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: httpbin-credential
+      hosts:
+        - "*"
+    - port:
         number: 443
         name: https
         protocol: HTTPS
       tls:
-        mode: ISTIO_MUTUAL
+        mode: SIMPLE
+        credentialName: httpbin-credential
       hosts:
         - "*"
     - port:

@@ -8,6 +8,9 @@
 Применим DestinationRule:
 `kubectl apply -f external-cluster-dr.yml`{{execute}}
 
+
+
+
 Совершим GET запрос по адресу ingress-шлюза:
 `curl -v http://$GATEWAY_URL/service-c`{{execute}}
 
@@ -70,3 +73,20 @@ spec:
 Кроме того, вся сетевая логика, связанная с созданием HTTPS соединения и шифрованием данных, осталась абсолютно прозрачной для бизнес сервиса, который продолжал совершать небезопасные HTTP запросы без TLS шифрования.
 
 Таким образом мы зашифровали HTTP трафик и создали HTTPS соединение.
+
+
+[2021-10-06T22:41:57.885Z] "GET /service-ext HTTP/2" 503 NC cluster_not_found - "-" 0 0 0 - "10.42.0.9" "Java/11.0.12" "eb65ea17-1b51-4e34-aee1-0446a3b68118" "istio-ingressgateway.istio-system.svc.cluster.local" "-" - - 10.42.0.11:8080 10.42.0.9:41952 - -
+[2021-10-06T22:41:58.557Z] "GET /service-ext HTTP/2" 503 NC cluster_not_found - "-" 0 0 0 - "10.42.0.9" "Java/11.0.12" "701215ce-620e-452d-af79-e7cc1daadb49" "istio-ingressgateway.istio-system.svc.cluster.local" "-" - - 10.42.0.11:8080 10.42.0.9:41952 - -
+[2021-10-06T22:41:58.558Z] "GET /service-ext HTTP/2" 503 NC cluster_not_found - "-" 0 0 0 - "10.42.0.9" "Java/11.0.12" "701215ce-620e-452d-af79-e7cc1daadb49" "istio-ingressgateway.istio-system.svc.cluster.local" "-" - - 10.42.0.11:8080 10.42.0.9:41952 - -
+[2021-10-06T22:41:58.581Z] "GET /service-ext HTTP/2" 503 NC cluster_not_found - "-" 0 0 0 - "10.42.0.9" "Java/11.0.12" "701215ce-620e-452d-af79-e7cc1daadb49" "istio-ingressgateway.istio-system.svc.cluster.local" "-" - - 10.42.0.11:8080 10.42.0.9:41952 - -
+[2021-10-06T22:41:59.238Z] "GET /service-ext HTTP/2" 503 NC cluster_not_found - "-" 0 0 0 - "10.42.0.9" "Java/11.0.12" "c4e26db0-b2b1-446d-ad0f-714bb6378385" "istio-ingressgateway.istio-system.svc.cluster.local" "-" - - 10.42.0.11:8080 10.42.0.9:41952 - -
+[2021-10-06T22:41:59.262Z] "GET /service-ext HTTP/2" 503 NC cluster_not_found - "-" 0 0 0 - "10.42.0.9" "Java/11.0.12" "c4e26db0-b2b1-446d-ad0f-714bb6378385" "istio-ingressgateway.istio-system.svc.cluster.local" "-" - - 10.42.0.11:8080 10.42.0.9:41952 - -
+[2021-10-06T22:41:59.301Z] "GET /service-ext HTTP/2" 503 NC cluster_not_found - "-" 0 0 0 - "10.42.0.9" "Java/11.0.12" "c4e26db0-b2b1-446d-ad0f-714bb6378385" "istio-ingressgateway.istio-system.svc.cluster.local" "-" - - 10.42.0.11:8080 10.42.0.9:41952 - -
+[2021-10-06T22:42:00.557Z] "GET /service-ext HTTP/2" 503 NC cluster_not_found - "-" 0 0 0 - "10.42.0.9" "Java/11.0.12" "55d8da92-4b6f-4b2c-9bbd-5a6d81916618" "istio-ingressgateway.istio-system.svc.cluster.local" "-" - - 10.42.0.11:8080 10.42.0.9:41952 - -
+[2021-10-06T22:42:00.573Z] "GET /service-ext HTTP/2" 503 NC cluster_not_found - "-" 0 0 0 - "10.42.0.9" "Java/11.0.12" "55d8da92-4b6f-4b2c-9bbd-5a6d81916618" "istio-ingressgateway.istio-system.svc.cluster.local" "-" - - 10.42.0.11:8080 10.42.0.9:41952 - -
+[2021-10-06T22:42:00.601Z] "GET /service-ext HTTP/2" 503 NC cluster_not_found - "-" 0 0 0 - "10.42.0.9" "Java/11.0.12" "55d8da92-4b6f-4b2c-9bbd-5a6d81916618" "istio-ingressgateway.istio-system.svc.cluster.local" "-" - - 10.42.0.11:8080 10.42.0.9:41952 - -
+[2021-10-06T22:42:00.573Z] "GET /service-ext HTTP/2" 503 NC cluster_not_found - "-" 0 0 0 - "10.42.0.9" "Java/11.0.12" "55d8da92-4b6f-4b2c-9bbd-5a6d81916618" "istio-ingressgateway.istio-system.svc.cluster.local" "-" - - 10.42.0.11:8080 10.42.0.9:41952 - -
+[2021-10-06T22:42:00.601Z] "GET /service-ext HTTP/2" 503 NC cluster_not_found - "-" 0 0 0 - "10.42.0.9" "Java/11.0.12" "55d8da92-4b6f-4b2c-9bbd-5a6d81916618" "istio-ingressgateway.istio-system.svc.cluster.local" "-" - - 10.42.0.11:8080 10.42.0.9:41952 - -
+[2021-10-06T22:44:29.608Z] "GET /service-ext HTTP/2" 503 UC upstream_reset_before_response_started{connection_termination} - "-" 0 95 0 - "10.42.0.9" "Java/11.0.12" "0e931e89-5f3e-4098-a6b4-f8ab95b557c9" "istio-ingressgateway.istio-system.svc.cluster.local" "10.42.0.3:8443" outbound|443||istio-ingressgateway.istio-system.svc.cluster.local 10.42.0.11:38560 10.42.0.11:8080 10.42.0.9:41800 - -
+[2021-10-06T22:44:29.617Z] "GET /service-ext HTTP/2" 503 UC upstream_reset_before_response_started{connection_termination} - "-" 0 95 0 - "10.42.0.9" "Java/11.0.12" "0e931e89-5f3e-4098-a6b4-f8ab95b557c9" "istio-ingressgateway.istio-system.svc.cluster.local" "10.42.0.3:8443" outbound|443||istio-ingressgateway.istio-system.svc.cluster.local 10.42.0.11:38562 10.42.0.11:8080 10.42.0.9:41800 - -
+[2021-10-06T22:44:29.665Z] "GET /service-ext HTTP/2" 503 UC upstream_reset_before_response_started{connection_termination} - "-" 0 95 0 - "10.42.0.9" "Java/11.0.12" "0e931e89-5f3e-4098-a6b4-f8ab95b557c9" "istio-ingressgateway.istio-system.svc.cluster.local" "10.42.0.3:8443" outbound|443||istio-ingressgateway.istio-system.svc.cluster.local 10.42.0.11:38564 10.42.0.11:8080 10.42.0.9:41800 - -

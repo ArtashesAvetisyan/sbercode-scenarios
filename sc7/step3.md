@@ -2,6 +2,9 @@
 
 ![Mesh configuration](../assets/sc3-1.png)
 
+
+`kubectl create -n istio-system secret tls httpbin-credential --key=httpbin.example.com.key --cert=httpbin.example.com.crt`{{execute}}
+
 Установим ServiceC:
 `kubectl apply -f service-c-deployment.yml`{{execute}}
 
@@ -9,7 +12,7 @@
 `kubectl apply -f service-c-srv.yml`{{execute}}
 
 Применим манифест Gateway:
-`kubectl apply -f service-c-gw.yml`{{execute}}
+`kubectl apply -f ingress-gw.yml`{{execute}}
 
 Применим VirtualService:
 `kubectl apply -f inbound-to-service-c-vs.yml`{{execute}}
