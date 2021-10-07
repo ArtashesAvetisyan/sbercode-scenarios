@@ -12,18 +12,18 @@ spec:
         protocol: HTTPS
       tls:
         mode: MUTUAL
-        credentialName: httpbin-credential
+        credentialName: ingressgateway-cred
       hosts:
-        - "*"
+        - istio-ingressgateway.istio-system.svc.cluster.local
     - port:
         number: 443
         name: https-443
         protocol: HTTPS
       tls:
         mode: MUTUAL
-        credentialName: httpbin-credential
+        credentialName: ingressgateway-cred
       hosts:
-        - "*"
+        - istio-ingressgateway.istio-system.svc.cluster.local
     - port:
         number: 80
         name: http

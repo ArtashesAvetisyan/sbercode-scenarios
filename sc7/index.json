@@ -1,5 +1,5 @@
 {
-  "title": "3. Исходящий HTTPS трафик из service mesh",
+  "title": "7. Исходящий HTTPS трафик из service mesh",
   "description": "Рассмотрим создание исходящего HTTPS трафика из service mesh",
   "details": {
     "steps": [

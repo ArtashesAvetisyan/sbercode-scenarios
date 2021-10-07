@@ -9,5 +9,6 @@ spec:
       - port:
           number: 443
         tls:
-          mode: SIMPLE
+          mode: MUTUAL
+          credentialName: ingressgateway-cred
           sni: istio-ingressgateway.istio-system.svc.cluster.local

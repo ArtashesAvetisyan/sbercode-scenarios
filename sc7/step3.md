@@ -3,26 +3,16 @@
 ![Mesh configuration](../assets/sc3-1.png)
 
 
-`openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=example Inc./CN=10.19.193.62' -keyout example.com.key -out example.com.crt`{{execute}}
+Генерация сертификатов
 
-`openssl req -out httpbin.example.com.csr -newkey rsa:2048 -nodes -keyout httpbin.example.com.key -subj "/CN=10.19.193.62/O=httpbin organization"`{{execute}}
-`openssl x509 -req -days 365 -CA example.com.crt -CAkey example.com.key -set_serial 0 -in httpbin.example.com.csr -out httpbin.example.com.crt`{{execute}}
-
-`kubectl create -n istio-system secret tls httpbin-credential --key=httpbin.example.com.key --cert=httpbin.example.com.crt`{{execute}}
-
-
-
-
-
-
-`kubectl create -n istio-system secret tls ingressgateway-cred --key=local.istio-ingressgateway.key --cert=local.istio-ingressgateway.crt`{{execute}}
-
-
-`openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=example Inc./CN=istio-system.svc.cluster.local' -keyout istio-ingressgateway.key -out istio-ingressgateway.crt`{{execute}}
+`openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=example Inc./CN=istio-ingressgateway.istio-system.svc.cluster.local' -keyout istio-ingressgateway.key -out istio-ingressgateway.crt`{{execute}}
 
 `openssl req -out local.istio-ingressgateway.csr -newkey rsa:2048 -nodes -keyout local.istio-ingressgateway.key -subj "/CN=istio-ingressgateway.istio-system.svc.cluster.local/O=My organization"`{{execute}}
 
 `openssl x509 -req -days 365 -CA istio-ingressgateway.crt -CAkey istio-ingressgateway.key -set_serial 0 -in local.istio-ingressgateway.csr -out local.istio-ingressgateway.crt`{{execute}}
+
+`kubectl create -n istio-system secret tls ingressgateway-cred --key=local.istio-ingressgateway.key --cert=local.istio-ingressgateway.crt`{{execute}}
+
 
 Установим ServiceC:
 `kubectl apply -f service-c-deployment.yml`{{execute}}
