@@ -39,10 +39,10 @@ spec:
 `curl -v http://$GATEWAY_URL/service-a`{{execute}}
 
 В случае успеха ответ на совершенный вызов должен быть таким:
-`Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from ServiceB!`
+`Hello from ServiceA! Calling master system API... Received response from master system (http://producer-internal-host): Hello from ServiceB!`
 
 Для сравнения аналогичный вызов на предыдущем шаге возвращал такой ответ:
-`Hello from ServiceA! Calling Producer Service... I/O error on GET request for "http://producer-internal-host:80/": producer-internal-host; nested exception is java.net.UnknownHostException: producer-internal-host`
+`Hello from ServiceA! Calling master system API... I/O error on GET request for "http://producer-internal-host": producer-internal-host; nested exception is java.net.UnknownHostException: producer-internal-host`
 
 Теперь в кластере существуют поставщик данных для ServiceA, который связан с хостом producer-internal-host, поэтому ServiceA на этом шаге получает корректный ответ.
 

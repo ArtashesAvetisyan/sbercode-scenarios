@@ -1,0 +1,57 @@
+{
+  "title": "7. Исходящий HTTPS трафик из service mesh",
+  "description": "Рассмотрим создание исходящего HTTPS трафика из service mesh",
+  "details": {
+    "steps": [
+      {
+        "title": "Введение",
+        "text": "intro.md"
+      },
+      {
+        "title": "Подготовка среды выполнения",
+        "text": "step1.md"
+      },
+      {
+        "title": "Сценарии упражнения",
+        "text": "step2.md"
+      },
+      {
+        "title": "Установка ServiceC, внутрисетевая маршрутизация",
+        "text": "step3.md"
+      },
+      {
+        "title": "Создание виртуального кластера external-cluster",
+        "text": "step4.md"
+      },
+      {
+        "title": "Конфигурацию исходящего HTTPS трафика.",
+        "text": "step5.md"
+      },
+      {
+        "title": "Завершение",
+        "text": "finish.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        {"file": "service-c-deployment.yml", "target": "/root"},
+        {"file": "service-c-srv.yml", "target": "/root"},
+        {"file": "inbound-to-service-c-vs.yml", "target": "/root"},
+        {"file": "external-cluster-dr.yml", "target": "/root"},
+        {"file": "external-cluster-se.yml", "target": "/root"},
+        {"file": "service-ext-deployment.yml", "target": "/root"},
+        {"file": "service-ext-srv.yml", "target": "/root"},
+        {"file": "ingress-gw.yml", "target": "/root"},
+        {"file": "inbound-to-service-ext-vs.yml", "target": "/root"},
+        {"file": "outbound-srv-c-to-service-ext-vs.yml", "target": "/root"},
+        {"file": "service-ext-outbound-gw.yml", "target": "/root"}
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "k3s-istio:1.10.1"
+  }
+}

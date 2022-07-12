@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: external-cluster-dr
+spec:
+  host: istio-ingressgateway.istio-system.svc.cluster.local
+  trafficPolicy:
+    portLevelSettings:
+      - port:
+          number: 443
+        tls:
+          mode: MUTUAL
+          credentialName: ingressgateway-cred
+          sni: istio-ingressgateway.istio-system.svc.cluster.local

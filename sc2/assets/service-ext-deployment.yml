@@ -19,9 +19,13 @@ spec:
     spec:
       containers:
         - name: service-ext-container
-          image: artashesavetisyan/istio-basics-course:service-ext
+          image: artashesavetisyan/istio-basics-course:service-ext-java-11
           imagePullPolicy: Always
           ports:
             - containerPort: 8082
           securityContext:
             runAsUser: 1000
+          resources:
+            limits:
+              memory: 32Mi
+              cpu: 100m

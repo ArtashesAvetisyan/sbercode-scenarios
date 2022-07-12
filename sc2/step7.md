@@ -1,4 +1,4 @@
-На данном шаге мы откроем исходящий трафик из service mesh для получения ответов из worldtimeapi.org на запросы из ServiceC.
+На данном шаге мы откроем исходящий трафик из пространсва имен dev-service-mesh для получения ответов из пространсва имен external-cluster на запросы ServiceC.
 
 Схема service mesh, в соотвесвтии с которой будем настраивать наш кластер:
 
@@ -16,7 +16,7 @@
 
 Развернем egress-шлюз, выполнив команду авто-конфигруации Isto:
 
-`istioctl -c /etc/rancher/k3s/k3s.yaml install -y --set components.egressGateways[0].name=istio-egressgateway --set components.egressGateways[0].enabled=true --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY --set values.pilot.resources.requests.memory=128Mi --set values.pilot.resources.requests.cpu=50m --set values.global.proxy.resources.requests.cpu=10m --set values.global.proxy.resources.requests.memory=32Mi`{{execute}}
+`istioctl -c /etc/rancher/k3s/k3s.yaml install -y --set components.egressGateways[0].name=istio-egressgateway --set components.egressGateways[0].enabled=true --set meshConfig.accessLogFile=/dev/stdout --set meshConfig.outboundTrafficPolicy.mode=REGISTRY_ONLY --set values.pilot.resources.requests.memory=128Mi --set values.pilot.resources.requests.cpu=50m --set values.global.proxy.resources.requests.cpu=10m --set values.global.proxy.resources.requests.memory=32Mi --set values.global.proxy.resources.limits.memory=64Mi --set values.pilot.resources.limits.memory=256Mi`{{execute}}
 
 В случае успеха, в выводе вышеприведенной команды должны быть строки:
 ```
@@ -74,12 +74,12 @@ spec:
 
 `curl -v http://$GATEWAY_URL/service-a`{{execute}}
 
-На этом шаге все ответы должны быть успешные и иметь вид (если поступили из ServiceB):
-`Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from ServiceB!`
+На этом шаге все ответы должны быть успешные и иметь вид (если поступили в ServiceA из ServiceB):
+`Hello from ServiceA! Calling master system API... Received response from master system (http://producer-internal-host): Hello from ServiceB!`
 
-Или из ServiceC:
+Или поступили в ServiceA из ServiceC (см. схему сети выше):
 ```
-Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from Service-EXT! Calling master system API... Received response from master system (http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext): Hello from External Cluster Service!
+Hello from ServiceA! Calling master system API... Received response from master system (http://producer-internal-host): Hello from ServiceC! Calling master system API... Received response from master system (http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext): Hello from External Cluster Service!
 ```
 
 Обратите внимание, что в части ответа из ServiceC присутвует ответ из кластера external-cluster по запросу `http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext`

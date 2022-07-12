@@ -2,10 +2,6 @@
 
 Для этого нам нужно будет обновить манифест producer-internal-host-vs.
 
-Схема сети:
-
-![Mesh configuration](../assets/c2-5.png)
-
 Рассмотрим новую версию:
 ```
 apiVersion: networking.istio.io/v1alpha3
@@ -35,5 +31,5 @@ spec:
 
 Теперь все ответы из ServiceC:
 ```
-Hello from ServiceA! Calling Producer Service... Received response from Producer Service: Hello from Service-EXT! Calling master system API... Received response from master system (http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext): Hello from External Cluster Service!
+Hello from ServiceA! Calling master system API... Received response from master system (http://producer-internal-host): Hello from ServiceC! Calling master system API... Received response from master system (http://istio-ingressgateway.istio-system.svc.cluster.local/service-ext): Hello from External Cluster Service!
 ```

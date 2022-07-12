@@ -1,0 +1,32 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: ingress-gw
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 8443
+        name: https-8443
+        protocol: HTTPS
+      tls:
+        mode: MUTUAL
+        credentialName: ingressgateway-cred
+      hosts:
+        - istio-ingressgateway.istio-system.svc.cluster.local
+    - port:
+        number: 443
+        name: https-443
+        protocol: HTTPS
+      tls:
+        mode: MUTUAL
+        credentialName: ingressgateway-cred
+      hosts:
+        - istio-ingressgateway.istio-system.svc.cluster.local
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "*"
